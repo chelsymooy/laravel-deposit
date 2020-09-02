@@ -17,6 +17,8 @@ class Account extends Model
 {
     use SoftDeletes;
 
+    protected $table = 'cld_accounts';
+
     public $fillable = [
         'user_id',
         'no',
@@ -43,7 +45,7 @@ class Account extends Model
      */
     public static $rules = [
         'user_id'           => 'required|exists:users,id',
-        'no'                => 'nullable|unique:accounts,no',
+        'no'                => 'nullable|unique:cld_accounts,no',
         'name'              => 'required|string',
         'balance'           => 'nullable|min:0|numeric'
     ];

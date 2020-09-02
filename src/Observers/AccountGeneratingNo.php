@@ -21,7 +21,7 @@ class AccountGeneratingNo
             /////////////////
             // Generate No //
             /////////////////
-            $no = $account->issued_at->format('ym.');
+            $no = now()->format('ym.');
 
             ///////////////////
             // Get latest no //

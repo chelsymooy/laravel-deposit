@@ -3,7 +3,6 @@
 namespace Chelsymooy\Deposit\Observers;
 
 use Eloquent as Model;
-
 use Chelsymooy\Deposit\Models\History;
 
 class Pay
@@ -16,7 +15,7 @@ class Pay
      */
     public function saved(Model $trs)
     {
-        if(Str::is($trs->method, config()->get('deposit.default_account')) && !$trs->cancelled_at){
+        if(in_array($trs->method, config()->get('deposit.pay_method')) && $trs->user && $trs->user->account && !$trs->cancelled_at){
             $account    = $trs->user->account;
             
             /*CATAT HISTORY*/
@@ -36,7 +35,7 @@ class Pay
      */
     public function updating(Model $trs)
     {
-        if(Str::is($trs->method, config()->get('deposit.default_account')) && $trs->getDirty('total')){
+        if(in_array($trs->method, config()->get('deposit.pay_method')) && $trs->user && $trs->user->account && $trs->getDirty('total')){
             $account    = $trs->user->account;
             
             /*CATAT HISTORY*/
@@ -56,7 +55,7 @@ class Pay
      */
     public function updated(Model $trs)
     {
-        if(Str::is($trs->method, config()->get('deposit.default_account')) && $trs->cancelled_at){
+        if(in_array($trs->method, config()->get('deposit.pay_method')) && $trs->user && $trs->user->account && $trs->cancelled_at){
             $account    = $trs->user->account;
             
             /*CATAT HISTORY*/

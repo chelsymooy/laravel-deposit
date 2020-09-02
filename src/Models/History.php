@@ -14,6 +14,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class History extends Model
 {
     use SoftDeletes;
+    
+    protected $table = 'cld_history';
 
     public $fillable = [
         'account_id',
