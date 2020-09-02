@@ -29,7 +29,7 @@
 
 3. Add service provider in config/app.php:
     ```shell
-    Chelsymooy\deposits\Providers\depositServiceProvider::class,
+    Chelsymooy\Deposit\Providers\DepositServiceProvider::class,
     ```
 
 4. Execute migrations via the following command:
