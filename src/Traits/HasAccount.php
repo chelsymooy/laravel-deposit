@@ -22,7 +22,7 @@ trait HasAccount
     }
 
     public function open_account(){
-        return Account::create(['user_id' => $this->user, 'name' => config()->get('deposit.default_account')])
+        return Account::create(['user_id' => $this->user, 'name' => config()->get('deposit.default_account')]);
     }
 
     public function close_account(){
