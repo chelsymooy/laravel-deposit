@@ -6,7 +6,7 @@ use Illuminate\Support\ServiceProvider;
 
 use Chelsymooy\Deposit\Models\Account;
 
-class DepositServiceProvide extends ServiceProvider {
+class DepositServiceProvider extends ServiceProvider {
 
     /**
      * Register any application services.
